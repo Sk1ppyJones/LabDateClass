@@ -49,32 +49,45 @@ public:
 
     [[nodiscard]] static string toString(const Date date) {
         // Changes number date to a string version with named months
+        int month = date.month;
         string ss;
-        switch (date.month) {
+        switch (month) {
             case 1:
                 ss = "Jan ";
+                break;
             case 2:
                 ss = "Feb ";
+                break;
             case 3:
                 ss = "March ";
+                break;
             case 4:
                 ss = "April ";
+                break;
             case 5:
                 ss = "May ";
+                break;
             case 6:
                 ss = "June ";
+                break;
             case 7:
                 ss = "July ";
+                break;
             case 8:
                 ss = "Aug ";
+                break;
             case 9:
                 ss = "Sep ";
+                break;
             case 10:
                 ss = "Oct ";
+                break;
             case 11:
                 ss = "Nov ";
+                break;
             case 12:
                 ss = "Dec ";
+                break;
             default:
                 ss = "Invalid Month Entered";
         }
@@ -122,3 +135,8 @@ private:
         return days_in_month[m - 1];
     }
 };
+
+inline ostream& operator<<(ostream& out, Date date) {
+    out << date.toString(date) << date.getDay() << ", " << date.getYear();
+    return out;
+}
